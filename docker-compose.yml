@@ -1,0 +1,9 @@
+version: "3.7"
+services:
+  cmd:
+    build: .
+    volumes:
+      - ./:/go/src/github.com/dcrichards/go-to-openapi
+    environment:
+      - CGO_ENABLED=0
+    command: "go test -v -coverprofile=coverage.out ./..."
