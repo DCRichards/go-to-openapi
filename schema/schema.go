@@ -8,15 +8,15 @@ import (
 
 const (
 	schemaTypeString = "string"
-	schemaTypeBool = "boolean"
-	schemaTypeInt = "integer"
+	schemaTypeBool   = "boolean"
+	schemaTypeInt    = "integer"
 	schemaTypeNumber = "number"
 	schemaTypeObject = "object"
-	schemaTypeArray = "array"
+	schemaTypeArray  = "array"
 
-	formatInt32 = "int32"
-	formatInt64 = "int64"
-	formatFloat = "float"
+	formatInt32    = "int32"
+	formatInt64    = "int64"
+	formatFloat    = "float"
 	formatDateTime = "date-time"
 )
 
@@ -43,7 +43,7 @@ func parseDeep(v reflect.Value, name string, out map[string]Schema) map[string]S
 	case reflect.Ptr:
 		if !v.IsNil() {
 			return parseDeep(v.Elem(), name, out)
-		} 
+		}
 
 		return parseDeep(reflect.New(v.Type().Elem()), name, out)
 	case reflect.String:
@@ -87,8 +87,8 @@ func parseDeep(v reflect.Value, name string, out map[string]Schema) map[string]S
 	case reflect.Map:
 		additionalProps := true
 		p := Schema{
-			Type: schemaTypeObject,
-			Properties: map[string]Schema{},
+			Type:                 schemaTypeObject,
+			Properties:           map[string]Schema{},
 			AdditionalProperties: &additionalProps,
 		}
 
