@@ -41,6 +41,7 @@ type Schema struct {
 func parseDeep(v reflect.Value, name string, out map[string]Schema) map[string]Schema {
 	switch v.Kind() {
 	case reflect.Ptr:
+		// TODO: Handle self-referencial via pointers as this will currency recurse forever.
 		if !v.IsNil() {
 			return parseDeep(v.Elem(), name, out)
 		}

@@ -1,0 +1,22 @@
+schema:
+  type: object
+  properties:
+    email:
+      type: string
+    id:
+      type: string
+    props:
+      type: object
+      properties:
+        example:
+          type: string
+      additionalProperties: true
+    tags:
+      type: array
+      items:
+        type: object
+        properties:
+          active:
+            type: boolean
+          name:
+            type: string

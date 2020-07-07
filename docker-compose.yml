@@ -6,4 +6,4 @@ services:
       - ./:/go/src/github.com/dcrichards/go-to-openapi
     environment:
       - CGO_ENABLED=0
-    command: "go test -v -coverprofile=coverage.out ./..."
+    command: go test -v -cover ./...
